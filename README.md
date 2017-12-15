@@ -1,10 +1,10 @@
-# Project Name
+# Thesis - AirBnB
 
-The project description
+Does having “Experiences” associated with a listing increase the conversion rate from views to booking compared to listings without “Experiences” associated on a daily basis? 
 
 ## Roadmap
 
-View the project roadmap [here](LINK_TO_DOC)
+View the project roadmap [here](https://docs.google.com/document/d/1b0VSismpMuEEKK5ZZSBo3kPeJZKFYkrave3ltuNM_80/edit)
 
 ## Contributing
 
@@ -20,14 +20,16 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
 ## Usage
 
-> Some usage instructions
+> Some usage instructions ?
 
 ## Requirements
 
 - Node 6.9.x
 - Redis 3.2.x
 - Postgresql 9.6.x
-- etc
+- Express
+- NGinX
+- Travis CLI
 
 ## Other Information
 
