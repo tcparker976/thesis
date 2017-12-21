@@ -1,6 +1,8 @@
 # Thesis - AirBnB
 
-Does having “Experiences” associated with a listing increase the conversion rate from views to booking compared to listings without “Experiences” associated on a daily basis? 
+A project that examines the following question by way of creating the necessary services theorized to exist in the backend architecture of AirBnb's website, scaled to handle high throughput.
+
+"Does having “Experiences” associated with a listing increase the conversion rate from views to booking compared to listings without “Experiences” associated on a daily basis? ""
 
 ## Roadmap
 
@@ -34,4 +36,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 ## Other Information
 
 (TODO: fill this out with details about your project. Suggested ideas: architecture diagram, schema, and any other details from your app plan that sound interesting.)
+
+
 
