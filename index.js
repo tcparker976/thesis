@@ -8,10 +8,27 @@ var apm = require('elastic-apm-node').start({
   serverUrl: ''
 })
 
-var axios = require('axios');
+var http = require('http');
+var request = require('request');
 
-// var stressPost = require('./stress.js');
+/*
+GET /booking/availability/:itemId/
+POST /booking/:itemId/
+POST /listings-experiences/results/:query/
+*GET /listings-experiences/search/:query/
+*POST /listings-experiences/:update/:itemId/:userId
+*/
+
 var app = require('express')()
+
+// any errors caught by Express can be logged by the agent as well
+app.use(apm.middleware.express())
+
+app.get('/booking/availability/:itemId', function (req, res) {
+  request()
+})
+
+
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
@@ -21,13 +38,10 @@ app.post('/test', function(req, res) {
   res.status(201).send('Posted something');
 })
 
-// any errors caught by Express can be logged by the agent as well
-app.use(apm.middleware.express())
-
 app.use(function(err, req, res, next) {
   if (err) {
     console.log('ERROR: ', err);
   }
 })
 
-app.listen(3000)
+app.listen(3000);
