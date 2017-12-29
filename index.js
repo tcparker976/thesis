@@ -13,6 +13,7 @@ var sessionChecker = require('./db/sessionChecker.js');
 var http = require('http');
 var request = require('request');
 var axios = require('axios');
+var Promise = require('bluebird');
 
 /*
 GET /booking/availability/:itemId/
@@ -24,12 +25,38 @@ GET /listings-experiences/results/:query/ <-- (I don't think this is necessary a
 
 var app = require('express')()
 
+var events = []
+var viewHandler = function(view) {
+  
+  events.push(view);
+  if (events.length === 10) {
+    Promise.all(events)
+    .then(function() {
+      events = [];
+    })
+    .catch(function(err) {
+      console.log('VIEW ERROR: ', err);
+    });
+  }
+}
+
+
 // any errors caught by Express can be logged by the agent as well
 app.use(apm.middleware.express())
 
 //gets a query from a user and sends it on to the bookings service
 app.get('/booking/availability/:itemId', function (req, res) {
   let itemId = req.body.itemId;
+
+  viewHandler(axios({
+    method: 'post',
+    url: 'URL for events service - Chris',
+    data: {
+      event: 'view',
+      itemId: itemId
+    }
+  }));
+
   axios({
     method:'get',
     url:'URL for bookings service - Joe',
@@ -48,6 +75,16 @@ app.get('/booking/availability/:itemId', function (req, res) {
 //posts a booking for a listing or experience
 app.post('/booking/:itemId/', function (req, res) {
   let itemId = req.body.itemId;
+  
+  viewHandler(axios({
+    method: 'post',
+    url: 'URL for events service - Chris',
+    data: {
+      event: 'view',
+      itemId: itemId
+    }
+  }));
+
   axios({
     method: 'post',
     url: 'URL for bookings service - Joe',
@@ -87,6 +124,16 @@ app.post('/lisitngs-experiences/:update/:itemId/:userId/', function (req, res) {
   let update = req.body.update;
   let itemId = req.body.itemId;
   let userId = req.body.userId;
+
+  viewHandler(axios({
+    method: 'post',
+    url: 'URL for events service - Chris',
+    data: {
+      event: 'view',
+      itemId: itemId
+    }
+  }));
+  
   axios({
     method: 'post',
     url: 'URL for listings-experiences - Carter',
