@@ -4,7 +4,7 @@ var redis = require('redis-stream')
 var fs = require('fs');
 var client = new redis(6379, '127.0.0.1');
 
-var IpAddress = "172.16.254.";
+var IpAddress = '172.16.254.';
 var currentServerIP = '';
 var userId = 9000002;
 var session;

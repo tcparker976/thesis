@@ -15,9 +15,6 @@ return client.hmgetAsync('session-9978916', 'userId', 'serverIP')
     console.log('ERROR: ', err);
   })
 
-// returns [ '9978918', '172.16.254.7' ]
-
-// invalid queries and empty fields return [ null, null ]
 
 
 
